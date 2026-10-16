@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport name="film" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<query language="sql"><![CDATA[SELECT * FROM film]]></query>
+	<field name="KodeFilm" class="java.lang.String"/>
+	<field name="Judul" class="java.lang.String"/>
+	<field name="Genre" class="java.lang.String"/>
+	<field name="Tahun" class="java.lang.Integer"/>
+	<field name="Asal" class="java.lang.String"/>
+	<field name="Stok" class="java.lang.Integer"/>
+	<title height="78">
+		<element kind="rectangle" mode="Opaque" x="0" y="0" width="802" height="62" backcolor="#4C1D95">
+			<pen lineWidth="0.0"/>
+		</element>
+		<element kind="rectangle" mode="Opaque" x="0" y="62" width="802" height="4" backcolor="#E5384F">
+			<pen lineWidth="0.0"/>
+		</element>
+		<element kind="staticText" x="20" y="8" width="600" height="28" forecolor="#FFFFFF" fontSize="18.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[LAPORAN DATA FILM]]></text>
+		</element>
+		<element kind="staticText" x="20" y="37" width="400" height="16" forecolor="#D8CCFF" fontSize="9.0" vTextAlign="Middle">
+			<text><![CDATA[Sistem Informasi Rental VCD]]></text>
+		</element>
+		<element kind="textField" x="482" y="37" width="300" height="16" forecolor="#D8CCFF" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA["Tanggal cetak: " + new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id","ID")).format(new java.util.Date())]]></expression>
+		</element>
+	</title>
+	<columnHeader height="26">
+		<element kind="staticText" mode="Opaque" x="0" y="0" width="90" height="26" forecolor="#FFFFFF" backcolor="#6D28D9" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Kode Film]]></text>
+			<box><pen lineWidth="0.5" lineColor="#FFFFFF"/></box>
+		</element>
+		<element kind="staticText" mode="Opaque" x="90" y="0" width="250" height="26" forecolor="#FFFFFF" backcolor="#6D28D9" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Judul Film]]></text>
+			<box><pen lineWidth="0.5" lineColor="#FFFFFF"/></box>
+		</element>
+		<element kind="staticText" mode="Opaque" x="340" y="0" width="130" height="26" forecolor="#FFFFFF" backcolor="#6D28D9" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Genre]]></text>
+			<box><pen lineWidth="0.5" lineColor="#FFFFFF"/></box>
+		</element>
+		<element kind="staticText" mode="Opaque" x="470" y="0" width="90" height="26" forecolor="#FFFFFF" backcolor="#6D28D9" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Tahun]]></text>
+			<box><pen lineWidth="0.5" lineColor="#FFFFFF"/></box>
+		</element>
+		<element kind="staticText" mode="Opaque" x="560" y="0" width="140" height="26" forecolor="#FFFFFF" backcolor="#6D28D9" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Asal Negara]]></text>
+			<box><pen lineWidth="0.5" lineColor="#FFFFFF"/></box>
+		</element>
+		<element kind="staticText" mode="Opaque" x="700" y="0" width="102" height="26" forecolor="#FFFFFF" backcolor="#6D28D9" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Stok]]></text>
+			<box><pen lineWidth="0.5" lineColor="#FFFFFF"/></box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<element kind="rectangle" mode="Opaque" x="0" y="0" width="802" height="22" backcolor="#F3F0FA">
+				<printWhenExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></printWhenExpression>
+				<pen lineWidth="0.0"/>
+			</element>
+			<element kind="textField" x="0" y="0" width="90" height="22" fontSize="8.5" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+				<box leftPadding="6" rightPadding="6"><bottomPen lineWidth="0.5" lineColor="#D9D4EC"/></box>
+				<expression><![CDATA[$F{KodeFilm}]]></expression>
+			</element>
+			<element kind="textField" x="90" y="0" width="250" height="22" fontSize="8.5" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+				<box leftPadding="6" rightPadding="6"><bottomPen lineWidth="0.5" lineColor="#D9D4EC"/></box>
+				<expression><![CDATA[$F{Judul}]]></expression>
+			</element>
+			<element kind="textField" x="340" y="0" width="130" height="22" fontSize="8.5" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+				<box leftPadding="6" rightPadding="6"><bottomPen lineWidth="0.5" lineColor="#D9D4EC"/></box>
+				<expression><![CDATA[$F{Genre}]]></expression>
+			</element>
+			<element kind="textField" x="470" y="0" width="90" height="22" fontSize="8.5" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+				<box leftPadding="6" rightPadding="6"><bottomPen lineWidth="0.5" lineColor="#D9D4EC"/></box>
+				<expression><![CDATA[""+$F{Tahun}]]></expression>
+			</element>
+			<element kind="textField" x="560" y="0" width="140" height="22" fontSize="8.5" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+				<box leftPadding="6" rightPadding="6"><bottomPen lineWidth="0.5" lineColor="#D9D4EC"/></box>
+				<expression><![CDATA[$F{Asal}]]></expression>
+			</element>
+			<element kind="textField" x="700" y="0" width="102" height="22" fontSize="8.5" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+				<box leftPadding="6" rightPadding="6"><bottomPen lineWidth="0.5" lineColor="#D9D4EC"/></box>
+				<expression><![CDATA[""+$F{Stok}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="24">
+		<element kind="rectangle" mode="Opaque" x="0" y="2" width="802" height="1" backcolor="#D9D4EC">
+			<pen lineWidth="0.0"/>
+		</element>
+		<element kind="staticText" x="0" y="5" width="400" height="16" forecolor="#8A84A8" fontSize="8.0" vTextAlign="Middle">
+			<text><![CDATA[Rental VCD - Laporan Data Film]]></text>
+		</element>
+		<element kind="textField" x="602" y="5" width="200" height="16" forecolor="#8A84A8" fontSize="8.0" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA["Halaman " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="34">
+		<element kind="textField" x="0" y="10" width="802" height="18" forecolor="#4C1D95" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA["Total data: " + $V{REPORT_COUNT}]]></expression>
+		</element>
+	</summary>
+</jasperReport>
